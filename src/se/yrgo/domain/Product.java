@@ -7,6 +7,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Product implements java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Id;
@@ -17,12 +21,19 @@ public class Product implements java.io.Serializable{
 		
 	}
 	
-	
 	public Product(String productName, int price) {
 		this.productName = productName;
 		this.price = price;
 	}
+	
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
 	public int getId() {
 		return Id;
