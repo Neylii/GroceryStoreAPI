@@ -5,11 +5,13 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import se.yrgo.dataaccess.ProductNotFoundException;
@@ -22,12 +24,6 @@ public class ProductResource {
 	
 	@Inject
 	private GroceryStoreServiceLocal service;
-
-	@GET
-	@Produces("application/JSON")
-	public List<Product> getAllProducts() {
-	       return service.getAllProducts();
-	}
 	
 	@GET
 	@Produces("application/JSON")
@@ -47,5 +43,25 @@ public class ProductResource {
 	public Product createProduct(Product product) {
 		service.registerProduct(product);
 		return product;
+	}
+	
+	/**
+	 * 
+	 * @param firstId
+	 * @param secondId
+	 * @return
+	 * @author Tom
+	 */
+	@GET
+	@Produces({ "application/JSON", "application/XML" })
+	public Response getAllProductsWhereIdBetween(@DefaultValue("0") @QueryParam("firstId") Integer firstId,
+			@QueryParam("secondId") Integer secondId) {
+		if (firstId == 0 && secondId == null) {
+			return Response.ok(service.getAllProducts()).build();
+		}
+		if (firstId != null && secondId != null) {
+			return Response.ok(service.getAllProductsWhereIdBetween(firstId, secondId)).build();
+		}
+		return Response.status(400).build();
 	}
 }

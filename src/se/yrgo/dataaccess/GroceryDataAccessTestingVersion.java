@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
 
 import se.yrgo.domain.Product;
 
@@ -37,6 +36,10 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess{
 		return null;
 	}
 
-
+	@Override
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

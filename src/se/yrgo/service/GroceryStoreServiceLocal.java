@@ -15,4 +15,5 @@ public interface GroceryStoreServiceLocal {
 	public List<Product>getAllProducts();
 	public List<Product>searchByProductName(String productName);
 	public Product getById(int id) throws ProductNotFoundException;
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId);
 }

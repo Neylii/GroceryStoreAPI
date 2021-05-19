@@ -16,4 +16,6 @@ public interface GroceryDataAccess {
 	public List<Product> findByProductName(String productName);
 	
 	public Product findById(int id) throws ProductNotFoundException;
+	
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId);
 }

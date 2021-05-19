@@ -49,4 +49,13 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess{
 			throw new ProductNotFoundException();
 		}
 	}
+	
+	@Override
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
+		Query q = em.createQuery("select product from Product product where product.id >= :first and product.id <=:second");
+		q.setParameter("first", firstId);
+		q.setParameter("second", secondId);
+		List<Product> products = q.getResultList();
+		return products;
+	}
 }
