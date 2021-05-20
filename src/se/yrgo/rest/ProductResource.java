@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -43,6 +44,22 @@ public class ProductResource {
 	public Product createProduct(Product product) {
 		service.registerProduct(product);
 		return product;
+	}
+	
+	/**
+	 * @param product
+	 * @throws ProductNotFoundException
+	 * @author Emma
+	 */
+	@DELETE
+	@Path("{productNo}")
+	public Response deleteProduct(@PathParam("productNo") int id) {
+		try {
+			service.deleteProduct(id);
+			return Response.status(204).build();
+		} catch (ProductNotFoundException e) {
+			return Response.status(404).build();
+		}
 	}
 	
 	/**

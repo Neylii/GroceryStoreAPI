@@ -19,7 +19,15 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	public void registerProduct(Product product) {
 		dao.insert(product);
 	}
-
+	
+	/**
+	 * @author Emma
+	 */
+	@Override
+	public void deleteProduct(int id) throws ProductNotFoundException {
+		dao.deleteProduct(id);
+	}
+	
 	@Override
 	public List<Product> getAllProducts() {
 		return dao.findAll();
@@ -39,4 +47,5 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
 		return dao.getAllProductsWhereIdBetween(firstId, secondId);
 	}
+	
 }

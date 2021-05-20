@@ -41,5 +41,10 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void deleteProduct(int id) throws ProductNotFoundException {
+		// TODO Auto-generated method stub
+	}
 	
 }

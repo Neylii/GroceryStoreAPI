@@ -12,6 +12,7 @@ import se.yrgo.domain.Product;
 public interface GroceryStoreServiceLocal {
 
 	public void registerProduct(Product product);
+	public void deleteProduct(int id) throws ProductNotFoundException;
 	public List<Product>getAllProducts();
 	public List<Product>searchByProductName(String productName);
 	public Product getById(int id) throws ProductNotFoundException;

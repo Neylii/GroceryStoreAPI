@@ -20,7 +20,17 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess{
 	@Override
 	public void insert(Product newProduct) {
 		em.persist(newProduct);
-		
+	}
+	
+	/**
+	 * Deletes a product given its id.
+	 * @author Emma
+	 * @param id
+	 */
+	@Override
+	public void deleteProduct(int id) throws ProductNotFoundException {
+		Product p = findById(id);
+		em.remove(p);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -58,4 +68,5 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess{
 		List<Product> products = q.getResultList();
 		return products;
 	}
+	
 }
