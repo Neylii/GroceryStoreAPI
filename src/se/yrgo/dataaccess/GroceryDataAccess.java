@@ -21,5 +21,5 @@ public interface GroceryDataAccess {
 
 	public void deleteProduct(int id) throws ProductNotFoundException;
 
-	void updatePrice(int id, int price) throws ProductNotFoundException;
+	public void updatePrice(int id, int price) throws ProductNotFoundException;
 }
