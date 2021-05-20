@@ -33,6 +33,9 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 		return null;
 	}
 
+	/**
+	 * @author Emma
+	 */
 	@Override
 	public Product findById(int id) {
 		// TODO Auto-generated method stub
@@ -44,7 +47,10 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	/**
+	 * @author Emma
+	 */
 	@Override
 	public void deleteProduct(int id) throws ProductNotFoundException {
 		// TODO Auto-generated method stub
