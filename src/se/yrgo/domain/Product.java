@@ -15,7 +15,7 @@ public class Product implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	private int id;
 	private String productName;
 	private int price;
 	
@@ -38,7 +38,7 @@ public class Product implements java.io.Serializable{
 	}
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 
@@ -55,8 +55,5 @@ public class Product implements java.io.Serializable{
 	@Override
 	public String toString() {
 		return "Product : " + productName + ", price : " + price;
-	}
-
-
-	
+	}	
 }

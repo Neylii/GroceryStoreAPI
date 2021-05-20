@@ -9,6 +9,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -80,5 +81,18 @@ public class ProductResource {
 			return Response.ok(service.getAllProductsWhereIdBetween(firstId, secondId)).build();
 		}
 		return Response.status(400).build();
+	}
+	
+	@PUT
+	@Path("{productNo}")
+	@Produces("application/JSON")
+	@Consumes("application/JSON")
+	public Response updatePrice(@PathParam("productNo") int id, Product p){
+		try {
+			service.updatePrice(id, p.getPrice());
+			return Response.ok(service.getById(id)).build();
+		} catch (ProductNotFoundException ex) {
+			return Response.status(404).build();
+		}
 	}
 }

@@ -20,4 +20,6 @@ public interface GroceryDataAccess {
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId);
 
 	public void deleteProduct(int id) throws ProductNotFoundException;
+
+	void updatePrice(int id, int price) throws ProductNotFoundException;
 }

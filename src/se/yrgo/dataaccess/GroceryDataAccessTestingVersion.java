@@ -9,7 +9,7 @@ import se.yrgo.domain.Product;
 
 @Stateless
 @TestingDao
-public class GroceryDataAccessTestingVersion implements GroceryDataAccess{
+public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 
 	@Override
 	public void insert(Product newProduct) {
@@ -46,5 +46,11 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess{
 	public void deleteProduct(int id) throws ProductNotFoundException {
 		// TODO Auto-generated method stub
 	}
-	
+
+	@Override
+	public void updatePrice(int id, int price) throws ProductNotFoundException {
+		// TODO Auto-generated method stub
+
+	}
+
 }
