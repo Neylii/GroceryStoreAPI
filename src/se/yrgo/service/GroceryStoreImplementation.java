@@ -33,6 +33,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 		return dao.findAll();
 	}
 
+	/**
+	 * @author Niklas
+	 */
 	@Override
 	public List<Product> searchByProductName(String productName) {
 		return dao.findByProductName(productName);
@@ -48,6 +51,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 		return dao.getAllProductsWhereIdBetween(firstId, secondId);
 	}
 	
+	/**
+	 * @author Niklas
+	 */
 	@Override
 	public void updatePrice(int id, int price) throws ProductNotFoundException {
 		dao.updatePrice(id, price);
