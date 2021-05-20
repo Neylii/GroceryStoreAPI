@@ -6,12 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * @author Emma
+ */
 @Entity
 @XmlRootElement
 public class Product implements java.io.Serializable{
-	/**
-	 * @author Emma
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -42,6 +42,9 @@ public class ProductResource {
 		}
 	}
 	
+	/**
+	 * @author Tom
+	 */
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")

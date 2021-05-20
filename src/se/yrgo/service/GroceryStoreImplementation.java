@@ -15,6 +15,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	@Inject
 	private GroceryDataAccess dao;
 
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public void registerProduct(Product product) {
 		dao.insert(product);
@@ -28,6 +31,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 		dao.deleteProduct(id);
 	}
 	
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public List<Product> getAllProducts() {
 		return dao.findAll();
@@ -50,6 +56,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 		return dao.findById(id);
 	}
 	
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
 		return dao.getAllProductsWhereIdBetween(firstId, secondId);

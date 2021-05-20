@@ -17,6 +17,9 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	@PersistenceContext
 	private EntityManager em;
 
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public void insert(Product newProduct) {
 		em.persist(newProduct);
@@ -33,6 +36,9 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 		em.remove(p);
 	}
 
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public List<Product> findAll() {
 		Query q = em.createQuery("select product from Product product");
@@ -66,6 +72,9 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 		}
 	}
 
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
 		Query q = em

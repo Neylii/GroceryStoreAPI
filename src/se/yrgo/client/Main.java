@@ -11,11 +11,11 @@ import se.yrgo.service.GroceryStoreService;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
+/**
+ * @author Niklas
+ */
 public class Main {
 
-	/**
-	 * @author Niklas
-	 */
 	public static void main(String[] args) throws NamingException {
 
 		Properties jndiProperties = new Properties();
