@@ -41,6 +41,10 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 		return dao.findByProductName(productName);
 	}
 
+	/**
+	 * @author Emma
+	 * @param id 
+	 */
 	@Override
 	public Product getById(int id) throws ProductNotFoundException {
 		return dao.findById(id);

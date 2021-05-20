@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Product implements java.io.Serializable{
 	/**
-	 * 
+	 * @author Emma
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id

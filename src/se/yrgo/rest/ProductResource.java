@@ -1,7 +1,5 @@
 package se.yrgo.rest;
 
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -27,6 +25,11 @@ public class ProductResource {
 	@Inject
 	private GroceryStoreServiceLocal service;
 	
+	/**
+	 * @author Emma
+	 * @param id
+	 * @return response status
+	 */
 	@GET
 	@Produces("application/JSON")
 	@Path("{productNo}")
@@ -48,9 +51,9 @@ public class ProductResource {
 	}
 	
 	/**
+	 * @author Emma
 	 * @param product
 	 * @throws ProductNotFoundException
-	 * @author Emma
 	 */
 	@DELETE
 	@Path("{productNo}")

@@ -24,7 +24,6 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 
 	/**
 	 * Deletes a product given its id.
-	 * 
 	 * @author Emma
 	 * @param id
 	 */
@@ -50,7 +49,12 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 		q.setParameter("productname", productName);
 		return q.getResultList();
 	}
-
+	
+	/**
+	 * @author Emma
+	 * @param id
+	 * @throws ProductNotFoundException
+	 */
 	@Override
 	public Product findById(int id) throws ProductNotFoundException {
 		Query q = em.createQuery("select product from Product product where product.id = :id");
