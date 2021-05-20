@@ -83,6 +83,13 @@ public class ProductResource {
 		return Response.status(400).build();
 	}
 	
+	/**
+	 * 
+	 * @param id productID
+	 * @param p Product object
+	 * @return
+	 * @author Niklas
+	 */
 	@PUT
 	@Path("{productNo}")
 	@Produces("application/JSON")
