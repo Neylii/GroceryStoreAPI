@@ -28,7 +28,7 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	/**
 	 * Deletes a product given its id.
 	 * @author Emma
-	 * @param id
+	 * @param id The product to be deleted.
 	 */
 	@Override
 	public void deleteProduct(int id) throws ProductNotFoundException {
@@ -57,9 +57,10 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	}
 	
 	/**
+	 * Find a product given an id. 
 	 * @author Emma
-	 * @param id
-	 * @throws ProductNotFoundException
+	 * @param id The product to search for.
+	 * @throws ProductNotFoundException if given an id that does not exist.
 	 */
 	@Override
 	public Product findById(int id) throws ProductNotFoundException {

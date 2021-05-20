@@ -26,9 +26,10 @@ public class ProductResource {
 	private GroceryStoreServiceLocal service;
 	
 	/**
+	 * Find a product given an id. 
 	 * @author Emma
-	 * @param id
-	 * @return response status
+	 * @param id The product to search for.
+	 * @return The product if found. Otherwise returns status 404 Not found.
 	 */
 	@GET
 	@Produces("application/JSON")
@@ -54,9 +55,10 @@ public class ProductResource {
 	}
 	
 	/**
+	 * Deletes a product given its id.
 	 * @author Emma
-	 * @param product
-	 * @throws ProductNotFoundException
+	 * @param id The product to be deleted.
+	 * @return Response status 204 (No Content) if success. Otherwise 404 (Not Found).
 	 */
 	@DELETE
 	@Path("{productNo}")
