@@ -48,4 +48,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 		return dao.getAllProductsWhereIdBetween(firstId, secondId);
 	}
 	
+	@Override
+	public void updatePrice(int id, int price) throws ProductNotFoundException {
+		dao.updatePrice(id, price);
+	}
+	
 }
