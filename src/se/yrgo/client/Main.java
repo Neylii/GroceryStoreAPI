@@ -13,6 +13,9 @@ import javax.naming.InitialContext;
 
 public class Main {
 
+	/**
+	 * @author Niklas
+	 */
 	public static void main(String[] args) throws NamingException {
 
 		Properties jndiProperties = new Properties();
@@ -26,28 +29,27 @@ public class Main {
 		GroceryStoreService service = (GroceryStoreService) jndi.lookup(
 				"GroceryStoreAPI/GroceryStoreImplementation!se.yrgo.service.GroceryStoreService");
 		
+		Product apple = new Product("Apple", 6);
+		Product banana = new Product("Banana", 9);
+		Product chocolate = new Product("Chocolate", 25);
+		Product walnuts = new Product("Walnuts", 35);
+		Product tomato = new Product("Tomato", 5);
+		Product gifflar = new Product("Gifflar", 19);
+		Product celsius = new Product("Celsius", 21);
+		Product milk = new Product("Milk", 11);
+		Product almondMilk = new Product("Almond Milk", 16);
+		Product cheese = new Product("Cheese", 62);
 		
-		Product prod1 = new Product("Apple", 6);
-		Product prod2 = new Product("Banana", 9);
-		Product prod3 = new Product("Chocolate", 25);
-		Product prod4 = new Product("Walnuts", 35);
-		Product prod5 = new Product("Tomato", 5);
-		Product prod6 = new Product("Gifflar", 19);
-		Product prod7 = new Product("Celsius", 21);
-		Product prod8 = new Product("Milk", 11);
-		Product prod9 = new Product("Almond Milk", 16);
-		Product prod10 = new Product("Cheese slices", 22);
-		
-		service.registerProduct(prod1);
-		service.registerProduct(prod2);
-		service.registerProduct(prod3);
-		service.registerProduct(prod4);
-		service.registerProduct(prod5);
-		service.registerProduct(prod6);
-		service.registerProduct(prod7);
-		service.registerProduct(prod8);
-		service.registerProduct(prod9);
-		service.registerProduct(prod10);
+		service.registerProduct(apple);
+		service.registerProduct(banana);
+		service.registerProduct(chocolate);
+		service.registerProduct(walnuts);
+		service.registerProduct(tomato);
+		service.registerProduct(gifflar);
+		service.registerProduct(celsius);
+		service.registerProduct(milk);
+		service.registerProduct(almondMilk);
+		service.registerProduct(cheese);
 		
 		List<Product> products = service.getAllProducts();
 		for (Product product : products) {

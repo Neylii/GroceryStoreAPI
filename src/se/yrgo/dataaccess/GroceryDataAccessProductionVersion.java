@@ -34,7 +34,6 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 		em.remove(p);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAll() {
 		Query q = em.createQuery("select product from Product product");
@@ -42,7 +41,9 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 		return products;
 	}
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * @author Niklas
+	 */
 	@Override
 	public List<Product> findByProductName(String productName) {
 		Query q = em.createQuery("select product from Product product where product.productname = :productName");
