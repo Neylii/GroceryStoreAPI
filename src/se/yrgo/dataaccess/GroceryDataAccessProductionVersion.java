@@ -18,6 +18,8 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	private EntityManager em;
 
 	/**
+	 * inserts a new product
+	 * @param newProduct product to add
 	 * @author Tom
 	 */
 	@Override
@@ -37,7 +39,9 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	}
 
 	/**
+	 * Get all products
 	 * @author Tom
+	 * @return list of all products
 	 */
 	@Override
 	public List<Product> findAll() {
@@ -74,7 +78,11 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	}
 
 	/**
+	 * Get products between to id:s
 	 * @author Tom
+	 * @param firstId the id to start from
+	 * @param secondId the id to end on
+	 * @return list of products
 	 */
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {

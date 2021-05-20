@@ -16,7 +16,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	private GroceryDataAccess dao;
 
 	/**
+	 * register product
 	 * @author Tom
+	 * @param product
 	 */
 	@Override
 	public void registerProduct(Product product) {
@@ -32,7 +34,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	}
 	
 	/**
+	 * get all products
 	 * @author Tom
+	 * @return 
 	 */
 	@Override
 	public List<Product> getAllProducts() {
@@ -57,7 +61,11 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	}
 	
 	/**
+	 * get products between interval
 	 * @author Tom
+	 * @param firstId
+	 * @param secondId
+	 * @return
 	 */
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {

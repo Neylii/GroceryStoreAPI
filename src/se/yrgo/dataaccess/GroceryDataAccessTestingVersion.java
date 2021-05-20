@@ -17,7 +17,9 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 	}
 
 	/**
+	 * find all products
 	 * @author Tom
+	 * @return list of all products
 	 */
 	@Override
 	public List<Product> findAll() {

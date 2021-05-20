@@ -45,6 +45,8 @@ public class ProductResource {
 	
 	/**
 	 * @author Tom
+	 * @param product to register
+	 * @return product
 	 */
 	@POST
 	@Produces("application/JSON")
@@ -72,11 +74,12 @@ public class ProductResource {
 	}
 	
 	/**
-	 * 
+	 * get products between inserted parameters (default on first is 0)
+	 * if none is put in get all
+	 * @author Tom
 	 * @param firstId
 	 * @param secondId
-	 * @return
-	 * @author Tom
+	 * @return response object
 	 */
 	@GET
 	@Produces({ "application/JSON", "application/XML" })
