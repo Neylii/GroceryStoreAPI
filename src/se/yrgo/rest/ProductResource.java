@@ -95,10 +95,10 @@ public class ProductResource {
 	}
 	
 	/**
-	 * 
-	 * @param id productID
-	 * @param p Product object
-	 * @return
+	 * Change the price of any product using the product id
+	 * @param id The id of the product that you want to change the price on
+	 * @param p Product that shall contain the new price that you want to change to
+	 * @return Response status 200 if success. Otherwise 404 (Not Found).
 	 * @author Niklas
 	 */
 	@PUT

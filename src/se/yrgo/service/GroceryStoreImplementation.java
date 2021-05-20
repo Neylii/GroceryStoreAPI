@@ -44,7 +44,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	}
 
 	/**
+	 * Search for a product using its name
 	 * @author Niklas
+	 * @param productName The name of the product
 	 */
 	@Override
 	public List<Product> searchByProductName(String productName) {
@@ -73,7 +75,10 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	}
 	
 	/**
+	 * Update price on a specific product
 	 * @author Niklas
+	 * @param id The id of the product you want to change the price on
+	 * @param price The price you want to change to
 	 */
 	@Override
 	public void updatePrice(int id, int price) throws ProductNotFoundException {
