@@ -51,7 +51,10 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	}
 
 	/**
+	 * Find a product by searching for the product name
 	 * @author Niklas
+	 * @param productName The name of the product
+	 * @return list of products that where found
 	 */
 	@Override
 	public List<Product> findByProductName(String productName) {
@@ -95,10 +98,11 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	}
 
 	/**
+	 * Change the price of any product using the product id
 	 * @author Niklas
-	 * @param id
-	 * @param price
-	 * @throws ProductNotFoundException
+	 * @param id The id of the product that you wanna change the price on
+	 * @param price The price you want to change to
+	 * @throws ProductNotFoundException if the id doesn't match an existing product
 	 */
 	@Override
 	public void updatePrice(int id, int price) throws ProductNotFoundException {
