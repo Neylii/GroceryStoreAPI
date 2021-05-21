@@ -36,7 +36,7 @@ public class ProductResource {
 	@Path("{productNo}")
 	public Response findById(@PathParam("productNo") int id) {
 		try {
-			Product result = service.getById(id);
+			Product result = service.findById(id);
 			return Response.ok(result).build();
 		} catch (ProductNotFoundException e) {
 			return Response.status(404).build();
@@ -108,7 +108,7 @@ public class ProductResource {
 	public Response updatePrice(@PathParam("productNo") int id, Product p){
 		try {
 			service.updatePrice(id, p.getPrice());
-			return Response.ok(service.getById(id)).build();
+			return Response.ok(service.findById(id)).build();
 		} catch (ProductNotFoundException ex) {
 			return Response.status(404).build();
 		}

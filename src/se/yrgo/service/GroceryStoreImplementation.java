@@ -62,7 +62,7 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	 * @throws ProductNotFoundException if given an id that does not exist.
 	 */
 	@Override
-	public Product getById(int id) throws ProductNotFoundException {
+	public Product findById(int id) throws ProductNotFoundException {
 		return dao.findById(id);
 	}
 	
