@@ -26,7 +26,9 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	}
 	
 	/**
+	 * Deletes a product given its id.
 	 * @author Emma
+	 * @param id The product to be deleted.
 	 */
 	@Override
 	public void deleteProduct(int id) throws ProductNotFoundException {
@@ -54,8 +56,10 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	}
 
 	/**
+	 * Find a product given an id. 
 	 * @author Emma
-	 * @param id 
+	 * @param id The product to search for.
+	 * @throws ProductNotFoundException if given an id that does not exist.
 	 */
 	@Override
 	public Product getById(int id) throws ProductNotFoundException {
