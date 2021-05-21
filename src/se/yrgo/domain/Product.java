@@ -26,6 +26,10 @@ public class Product implements java.io.Serializable {
 		this.productName = productName;
 		this.price = price;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public void setProductName(String productName) {
 		this.productName = productName;

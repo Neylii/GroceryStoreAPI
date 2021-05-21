@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.NoResultException;
 
 import se.yrgo.domain.Product;
 
@@ -36,13 +37,29 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 	}
 
 	/**
+	 * Find a product given an id. 
 	 * @author Emma
+	 * @param id The product to search for.
+	 * @return the product or null if nothing was found. 
 	 */
 	@Override
-	public Product findById(int id) {
-		// TODO Auto-generated method stub
+	public Product findById(int id) throws ProductNotFoundException {
+		Product bread = new Product("Bread", 23);
+		bread.setId(1);
+		Product catFood = new Product("Cat food", 17);
+		catFood.setId(2);
+		List<Product> products = new ArrayList<Product>();
+		products.add(bread);
+		products.add(catFood);
+
+		for (Product product : products) {
+				if(product.getId() == id) {
+					return product;
+				} 
+			}
 		return null;
 	}
+	
 
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
@@ -61,7 +78,6 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 	@Override
 	public void updatePrice(int id, int price) throws ProductNotFoundException {
 		// TODO Auto-generated method stub
-
 	}
 
 }

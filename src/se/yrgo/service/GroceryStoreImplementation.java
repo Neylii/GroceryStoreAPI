@@ -7,12 +7,14 @@ import javax.inject.Inject;
 
 import se.yrgo.dataaccess.GroceryDataAccess;
 import se.yrgo.dataaccess.ProductNotFoundException;
+import se.yrgo.dataaccess.TestingDao;
 import se.yrgo.domain.Product;
 
 @Stateless
 public class GroceryStoreImplementation implements GroceryStoreService, GroceryStoreServiceLocal {
 
 	@Inject
+	//@TestingDao
 	private GroceryDataAccess dao;
 
 	/**
