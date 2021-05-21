@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import javax.naming.NamingException;
 
+import se.yrgo.dataaccess.ProductNotFoundException;
 import se.yrgo.domain.Product;
 import se.yrgo.service.GroceryStoreService;
 
@@ -16,7 +17,7 @@ import javax.naming.InitialContext;
  */
 public class Main {
 
-	public static void main(String[] args) throws NamingException {
+	public static void main(String[] args) throws NamingException, ProductNotFoundException {
 
 		Properties jndiProperties = new Properties();
 
@@ -55,6 +56,10 @@ public class Main {
 		for (Product product : products) {
 			System.out.println(product);
 		}
+		
+		// Mostly for GroceryDataAccessTestingVersion;
+//		Product prod = service.findById(2);
+//		System.out.println(prod);
 		
 	}
 

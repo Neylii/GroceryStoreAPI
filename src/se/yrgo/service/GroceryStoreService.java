@@ -8,12 +8,18 @@ import se.yrgo.domain.Product;
 
 @Remote
 public interface GroceryStoreService {
-	
+
 	public void registerProduct(Product product);
+
 	public void deleteProduct(int id) throws ProductNotFoundException;
-	public List<Product>getAllProducts();
-	public List<Product>searchByProductName(String productName);
+
+	public List<Product> getAllProducts();
+
+	public List<Product> searchByProductName(String productName);
+
 	public Product findById(int id) throws ProductNotFoundException;
+
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId);
+
 	public void updatePrice(int id, int price) throws ProductNotFoundException;
 }
