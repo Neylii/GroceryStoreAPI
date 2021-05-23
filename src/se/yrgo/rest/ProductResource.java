@@ -79,7 +79,7 @@ public class ProductResource {
 	 * @author Tom
 	 * @param firstId
 	 * @param secondId
-	 * @return response object
+	 * @return response 200. Otherwise 400 bad request
 	 */
 	@GET
 	@Produces({ "application/JSON", "application/XML" })

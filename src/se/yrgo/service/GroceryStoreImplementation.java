@@ -40,7 +40,6 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	/**
 	 * get all products
 	 * @author Tom
-	 * @return 
 	 */
 	@Override
 	public List<Product> getAllProducts() {
@@ -71,8 +70,8 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	/**
 	 * get products between interval
 	 * @author Tom
-	 * @param firstId
-	 * @param secondId
+	 * @param firstId the id of the first product you want
+	 * @param secondId the id of the last product you want
 	 * @return
 	 */
 	@Override
