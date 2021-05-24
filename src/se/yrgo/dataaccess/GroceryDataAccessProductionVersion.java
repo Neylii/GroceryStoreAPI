@@ -55,12 +55,18 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	 * @author Niklas
 	 * @param productName The name of the product
 	 * @return list of products that where found
+	 * @throws ProductNotFoundException 
 	 */
 	@Override
-	public List<Product> findByProductName(String productName) {
-		Query q = em.createQuery("select product from Product product where product.productname = :productName");
-		q.setParameter("productname", productName);
-		return q.getResultList();
+	public List<Product> findByProductName(String productName) throws ProductNotFoundException {
+		Query q = em.createQuery("select product from Product product where product.productName = :productName");
+		q.setParameter("productName", productName);
+		try {
+		List<Product> products = q.getResultList();
+		return products;
+		} catch (NoResultException e) {
+			throw new ProductNotFoundException();
+		}
 	}
 	
 	/**

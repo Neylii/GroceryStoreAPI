@@ -38,7 +38,7 @@ public class ProductResource {
 		try {
 			Product result = service.findById(id);
 			return Response.ok(result).build();
-		} catch (ProductNotFoundException e) {
+		} catch (ProductNotFoundException e) { 
 			return Response.status(404).build();
 		}
 	}

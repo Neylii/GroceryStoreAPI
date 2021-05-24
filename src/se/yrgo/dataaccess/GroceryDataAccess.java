@@ -13,7 +13,7 @@ public interface GroceryDataAccess {
 
 	public List<Product> findAll();
 
-	public List<Product> findByProductName(String productName);
+	public List<Product> findByProductName(String productName) throws ProductNotFoundException;
 	
 	public Product findById(int id) throws ProductNotFoundException;
 	

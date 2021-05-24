@@ -14,7 +14,7 @@ public interface GroceryStoreServiceLocal {
 
 	public List<Product> getAllProducts();
 
-	public List<Product> searchByProductName(String productName);
+	public List<Product> findByProductName(String productName) throws ProductNotFoundException;
 
 	public Product findById(int id) throws ProductNotFoundException;
 
