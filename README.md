@@ -49,7 +49,7 @@ Now in your IDE run Main.java to add some data into the database.
 
 In the TestClient.java run the desired methods to try the API. Or one can use for example Insomnia and write
 http://localhost:8080/GroceryStore/webservice/products
-to show all products. Or add /<number> in the end to show a specific product. Or try any other methods.
+to show all products. Or add /and a number in the end to show a specific product. Or try any other methods.
 
 
 Enjoy and thank you for using our application!
