@@ -35,14 +35,14 @@ It should be the wildfly\standalone\deployments. Or simple copy over the jar and
 once you have them. It is needed to change the configuration file called standalone.xml which is located 
 in wildfly\standalone\configuration. Under the <datasources> add:
 
-"<datasource jndi-name="java:/GroceryStore" pool-name="GroceryStore" enabled="true" use-java-context="true">
+<datasource jndi-name="java:/GroceryStore" pool-name="GroceryStore" enabled="true" use-java-context="true">
 	<connection-url>jdbc:derby://localhost:50000/GroceryStore</connection-url>
 	<driver>derbyclient.jar</driver>
 	<security>
 		<user-name>APP</user-name>
         	<password>APP</password>
 	</security>
-</datasource>"
+</datasource>
 
 
 Now in your IDE run Main.java to add some data into the database. 
