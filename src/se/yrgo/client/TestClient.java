@@ -19,29 +19,29 @@ public class TestClient {
 		Client client = ClientBuilder.newClient();
 
 		// Create a new product.
-//		Product juice = new Product();
-//		juice.setProductName("Bravo");
-//		juice.setPrice(14);
-//		createProduct(client, juice);
+		Product juice = new Product();
+		juice.setProductName("Bravo");
+		juice.setPrice(14);
+		createProduct(client, juice);
 
 		// Find all products
-//      getAllProducts(client);
+      		getAllProducts(client);
 
 		// Find product with product name "Apple"
-//		findByProductName(client);
+		findByProductName(client);
 
 		// Find product with id 6.
-//		findById(client);
+		findById(client);
 
 		// Finds all product between id 2 and 4.
-//		testInterval(client);
+		testInterval(client);
 
 		// Update price on product with id 2
-//		int price = 999;
-//		updatePrice(client, price);
+		int price = 999;
+		updatePrice(client, price);
 
 		// Deletes product with id 8.
-//		deleteProduct(client);
+		deleteProduct(client);
 
 	}
 
