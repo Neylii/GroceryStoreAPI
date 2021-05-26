@@ -43,6 +43,7 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	 * get all products
 	 * 
 	 * @author Tom
+	 * @throws ProductNotFoundException
 	 */
 	@Override
 	public List<Product> getAllProducts() throws ProductNotFoundException {
@@ -78,7 +79,7 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	 * @author Tom
 	 * @param firstId the id of the first product you want
 	 * @param secondId the id of the last product you want
-	 * @return
+	 * @throws ProductNotFoundException
 	 */
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException {

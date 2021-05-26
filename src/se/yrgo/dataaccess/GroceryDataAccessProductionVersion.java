@@ -45,6 +45,8 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	 * 
 	 * @author Tom
 	 * @return list of all products
+	 * @throws ProductNotFoundException if list is empty
+	 * 
 	 */
 	@Override
 	public List<Product> findAll() throws ProductNotFoundException {
@@ -102,12 +104,12 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 	}
 
 	/**
-	 * Get products between to id:s
-	 * 
+	 * Get products between two id:s
 	 * @author Tom
 	 * @param firstId  the id to start from
 	 * @param secondId the id to end on
-	 * @return list of products
+	 * @return list of products,
+	 * @throws ProductNotFoundException if list is empty
 	 */
 	@Override
 	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException {
