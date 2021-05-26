@@ -12,13 +12,13 @@ public interface GroceryStoreServiceLocal {
 
 	public void deleteProduct(int id) throws ProductNotFoundException;
 
-	public List<Product> getAllProducts();
+	public List<Product> getAllProducts() throws ProductNotFoundException;
 
 	public List<Product> findByProductName(String productName) throws ProductNotFoundException;
 
 	public Product findById(int id) throws ProductNotFoundException;
 
-	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId);
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException;
 
 	public void updatePrice(int id, int price) throws ProductNotFoundException;
 }

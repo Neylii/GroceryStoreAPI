@@ -1,5 +1,7 @@
 package se.yrgo.rest;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -21,12 +23,13 @@ import se.yrgo.service.GroceryStoreServiceLocal;
 @Stateless
 @Path("/products")
 public class ProductResource {
-	
+
 	@Inject
 	private GroceryStoreServiceLocal service;
-	
+
 	/**
-	 * Find a product given an id. 
+	 * Find a product given an id.
+	 * 
 	 * @author Emma
 	 * @param id The product to search for.
 	 * @return The product if found. Otherwise returns status 404 Not found.
@@ -38,29 +41,35 @@ public class ProductResource {
 		try {
 			Product result = service.findById(id);
 			return Response.ok(result).build();
-		} catch (ProductNotFoundException e) { 
+		} catch (ProductNotFoundException e) {
 			return Response.status(404).build();
 		}
 	}
-	
+
 	/**
 	 * @author Tom
 	 * @param product to register
-	 * @return product
+	 * @return response status 200 if success. Else 400 
 	 */
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Product createProduct(Product product) {
-		service.registerProduct(product);
-		return product;
+	public Response createProduct(Product product) {
+		if (product.getPrice() <= 0 || product.getProductName() == null) {
+			return Response.status(400).build();
+		} else {
+			service.registerProduct(product);
+			return Response.ok(product).build();
+		}
 	}
-	
+
 	/**
 	 * Deletes a product given its id.
+	 * 
 	 * @author Emma
 	 * @param id The product to be deleted.
-	 * @return Response status 204 (No Content) if success. Otherwise 404 (Not Found).
+	 * @return Response status 204 (No Content) if success. Otherwise 404 (Not
+	 *         Found).
 	 */
 	@DELETE
 	@Path("{productNo}")
@@ -72,32 +81,44 @@ public class ProductResource {
 			return Response.status(404).build();
 		}
 	}
-	
+
 	/**
-	 * get products between inserted parameters (default on first is 0)
-	 * if none is put in get all
+	 * get products between inserted parameters (default on first is 0) if none is
+	 * put in get all
+	 * 
 	 * @author Tom
 	 * @param firstId
 	 * @param secondId
-	 * @return response 200. Otherwise 400 bad request
+	 * @return response 200. if empty 404, if nothing 400
 	 */
 	@GET
 	@Produces({ "application/JSON", "application/XML" })
 	public Response getAllProductsWhereIdBetween(@DefaultValue("0") @QueryParam("firstId") Integer firstId,
 			@QueryParam("secondId") Integer secondId) {
 		if (firstId == 0 && secondId == null) {
-			return Response.ok(service.getAllProducts()).build();
+			try {
+				List<Product> products = service.getAllProducts();
+				return Response.ok(products).build();
+			} catch (ProductNotFoundException ex) {
+				return Response.status(404).build();
+			}
 		}
 		if (firstId != null && secondId != null) {
-			return Response.ok(service.getAllProductsWhereIdBetween(firstId, secondId)).build();
+			try {
+				List<Product> products = service.getAllProductsWhereIdBetween(firstId, secondId);
+				return Response.ok(products).build();
+			} catch (ProductNotFoundException ex) {
+				return Response.status(404).build();
+			}
 		}
 		return Response.status(400).build();
 	}
-	
+
 	/**
 	 * Change the price of any product using the product id
+	 * 
 	 * @param id The id of the product that you want to change the price on
-	 * @param p Product that shall contain the new price that you want to change to
+	 * @param p  Product that shall contain the new price that you want to change to
 	 * @return Response status 200 if success. Otherwise 404 (Not Found).
 	 * @author Niklas
 	 */
@@ -105,7 +126,10 @@ public class ProductResource {
 	@Path("{productNo}")
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Response updatePrice(@PathParam("productNo") int id, Product p){
+	public Response updatePrice(@PathParam("productNo") int id, Product p) {
+		if (p.getPrice() <= 0) {
+			return Response.status(400).build();
+		}
 		try {
 			service.updatePrice(id, p.getPrice());
 			return Response.ok(service.findById(id)).build();

@@ -23,7 +23,7 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 	 * @return list of all products
 	 */
 	@Override
-	public List<Product> findAll() {
+	public List<Product> findAll() throws ProductNotFoundException {
 		Product prod2 = new Product("Banana", 10);
 		List<Product> products = new ArrayList<Product>();
 		products.add(prod2);
@@ -62,7 +62,7 @@ public class GroceryDataAccessTestingVersion implements GroceryDataAccess {
 	
 
 	@Override
-	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException {
 		// TODO Auto-generated method stub
 		return null;
 	}

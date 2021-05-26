@@ -19,6 +19,7 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 
 	/**
 	 * inserts a new product
+	 * 
 	 * @param newProduct product to add
 	 * @author Tom
 	 */
@@ -29,6 +30,7 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 
 	/**
 	 * Deletes a product given its id.
+	 * 
 	 * @author Emma
 	 * @param id The product to be deleted.
 	 */
@@ -40,37 +42,50 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 
 	/**
 	 * Get all products
+	 * 
 	 * @author Tom
 	 * @return list of all products
 	 */
 	@Override
-	public List<Product> findAll() {
+	public List<Product> findAll() throws ProductNotFoundException {
 		Query q = em.createQuery("select product from Product product");
-		List<Product> products = q.getResultList();
-		return products;
+		try {
+			List<Product> products = q.getResultList();
+			if (products.isEmpty()) {
+				throw new ProductNotFoundException();
+			}
+			return products;
+		} catch (NoResultException e) {
+			throw new ProductNotFoundException();
+		}
 	}
 
 	/**
 	 * Find a product by searching for the product name
+	 * 
 	 * @author Niklas
 	 * @param productName The name of the product
 	 * @return list of products that where found
-	 * @throws ProductNotFoundException 
+	 * @throws ProductNotFoundException
 	 */
 	@Override
 	public List<Product> findByProductName(String productName) throws ProductNotFoundException {
 		Query q = em.createQuery("select product from Product product where product.productName = :productName");
 		q.setParameter("productName", productName);
 		try {
-		List<Product> products = q.getResultList();
-		return products;
+			List<Product> products = q.getResultList();
+			if (products.isEmpty()) {
+				throw new ProductNotFoundException();
+			}
+			return products;
 		} catch (NoResultException e) {
 			throw new ProductNotFoundException();
 		}
 	}
-	
+
 	/**
-	 * Find a product given an id. 
+	 * Find a product given an id.
+	 * 
 	 * @author Emma
 	 * @param id The product to search for.
 	 * @throws ProductNotFoundException if given an id that does not exist.
@@ -88,25 +103,34 @@ public class GroceryDataAccessProductionVersion implements GroceryDataAccess {
 
 	/**
 	 * Get products between to id:s
+	 * 
 	 * @author Tom
-	 * @param firstId the id to start from
+	 * @param firstId  the id to start from
 	 * @param secondId the id to end on
 	 * @return list of products
 	 */
 	@Override
-	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException {
 		Query q = em
 				.createQuery("select product from Product product where product.id >= :first and product.id <=:second");
 		q.setParameter("first", firstId);
 		q.setParameter("second", secondId);
-		List<Product> products = q.getResultList();
-		return products;
+		try {
+			List<Product> products = q.getResultList();
+			if (products.isEmpty()) {
+				throw new ProductNotFoundException();
+			}
+			return products;
+		} catch (NoResultException e) {
+			throw new ProductNotFoundException();
+		}
 	}
 
 	/**
 	 * Change the price of any product using the product id
+	 * 
 	 * @author Niklas
-	 * @param id The id of the product that you wanna change the price on
+	 * @param id    The id of the product that you wanna change the price on
 	 * @param price The price you want to change to
 	 * @throws ProductNotFoundException if the id doesn't match an existing product
 	 */

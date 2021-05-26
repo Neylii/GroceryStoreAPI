@@ -11,13 +11,13 @@ public interface GroceryDataAccess {
 
 	public void insert(Product newProduct);
 
-	public List<Product> findAll();
+	public List<Product> findAll() throws ProductNotFoundException;
 
 	public List<Product> findByProductName(String productName) throws ProductNotFoundException;
 	
 	public Product findById(int id) throws ProductNotFoundException;
 	
-	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId);
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException;
 
 	public void deleteProduct(int id) throws ProductNotFoundException;
 

@@ -45,7 +45,7 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	 * @author Tom
 	 */
 	@Override
-	public List<Product> getAllProducts() {
+	public List<Product> getAllProducts() throws ProductNotFoundException {
 		return dao.findAll();
 	}
 
@@ -81,7 +81,7 @@ public class GroceryStoreImplementation implements GroceryStoreService, GroceryS
 	 * @return
 	 */
 	@Override
-	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) {
+	public List<Product> getAllProductsWhereIdBetween(int firstId, int secondId) throws ProductNotFoundException {
 		return dao.getAllProductsWhereIdBetween(firstId, secondId);
 	}
 
